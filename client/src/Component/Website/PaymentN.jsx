@@ -124,11 +124,12 @@ const PaymentForm = ({total}) => {
 <h1>{total}</h1>
       {true ? (
         <>
-          <Card className="my-10 w-8/12 mx-auto bg-gray-50 px-4 pt-8 lg:mt-5">
-            <p className="text-xl font-medium">Payment Details</p>
+          <Card className=" w-8/12 mx-auto bg-gray-50 px-4 pt-8 lg:mt-5 ">
+            <p className="text-xl mt-20 font-medium">Payment Details</p>
             <p className="text-gray-400">
               Complete your order by providing your payment details.
             </p>
+            <h2 className=" text-xl font-bold">Total : {total}</h2>
             <form onSubmit={handlePay} className="">
               {/* Email input */}
               <label

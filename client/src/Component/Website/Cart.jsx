@@ -140,9 +140,6 @@ const Cart = ({ data }) => {
       });
   }, []);
 
-  useEffect(() => {
-
-  }, []);
   const handleQuantityChange = (productId, quantityChange) => {
     setCartProduct((prevCart) => {
       const updatedCart = prevCart.map((item) => {
@@ -195,7 +192,7 @@ const Cart = ({ data }) => {
   return (
     <div>
     
-      <div className="h-screen bg-gray-100 pt-20">
+      <div className="h-screen bg-gray-100 pt-20 mt-20">
    <div className='flex justify-center'> 
        <img src={basket} alt='cart' className='h-10 mx-5' />
     <h1 className="mb-10 text-center text-3xl font-bold">My Cart</h1>

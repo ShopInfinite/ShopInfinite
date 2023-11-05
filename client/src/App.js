@@ -12,30 +12,59 @@ import Login from './Component/Website/Login';
 import Wishlist from './Component/Website/Wishlist';
 import FAQ from './Component/Website/FAQ';
 import ContactUs from './Component/Website/ContactUs';
+import AboutUs from './Component/Website/AboutUs';
+import AdsBar from './Component/Home/AdsBar';
+import { Navbar } from '@material-tailwind/react';
+import { useState } from 'react';
+import Footer from './Component/Website/Footer';
+import Navbar2 from './Component/Website/Navbar2';
+import Profile from './Component/Website/Profile';
+
+
 
 
 function App() {
+
+  const [cartItems, setCartItems] = useState([]);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+ 
+
+
   return (
     <div className="App">
-
+     <AdsBar/>
+   
+     <Navbar2 cartItems={cartItems} onToggleMobileNav={toggleMobileNav} totalAmount={totalAmount}/>
+     {isMobileNavOpen && <div className="overlay" onClick={toggleMobileNav} />}
+   
       <Router>
         <Routes>
-          {/* <Route path='/' element={<Home/>}/> */}
+          <Route path='/' element={<Home/>}/>
+        
+          
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout/:id' element={<Checkout/>}/>
+          {/* <Route path='/checkout/:id' element={<Checkout/>}/> */}
           <Route path='/registration' element={<Registration/>}/>
+          <Route path='/profile' element={<Profile/>}/>
           <Route path='/favorite' element={<Wishlist/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/payment' element={<Payment/>}/>
           <Route path='/contact' element={<ContactUs/>}/>
+          <Route path='/about' element={<AboutUs/>}/>
           <Route path='/faq' element={<FAQ/>}/>
           <Route path='/ProductDetail/:id' element={  <ProductDetail/>}/>
           
            
-        </Routes>
+        </Routes> <Footer/>
       </Router>
     
-      
+     
     </div>
   );
 }
