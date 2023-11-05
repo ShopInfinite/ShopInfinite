@@ -1,3 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.best-seller-section {
+  text-align: Left; 
+  /* margin-top: 20px;  */
+  margin-left: 50px;
+}
+
+.best-seller-title {
+  font-size: 24px; 
+  font-weight: bold;
+  margin-top: 40px; 
+
+}
+
+.orange-line {
+  border: 4px solid orange;
+  width:300px; 
+  margin: 8px 3px auto; 
+
+}
+
+
+.ads-bar {
+  position: fixed;
+  /* top: 0; */
+  width: 100%;
+
+  background-color: orange; /* لون الخلفية الخاص بك */
+  z-index: 1000; /* You can adjust the z-index as needed */
+  height: 50px; /* ارتفاع شريط الإعلانات */
+  /* Add other styles as needed */
+}
+
+/* أنماط Navbar */
+.nav {
+  position: fixed;
+  top: 50px; /* رفع شريط القائمة فوق شريط الإعلانات بمقدار ارتفاع شريط الإعلانات */
+  width: 100%;
+  background-color: #FFA500; /* لون الخلفية الخاص بك */
+  z-index: 100; /* تحديد قيمة z-index وفقًا لاحتياجاتك */
+  height: 60px; /* ارتفاع شريط القائمة */
+
+}
+.hero{
+  height:100vh;
+  background-size: fill ;
+
+}
+#myCarouselSection {
+  height: 80px; 
+  overflow-y:hidden;
+}
+
+
+
+/* Mohammad style  */
+.mt-4 {
+    margin-top: 0rem;
+    margin-left: 38px;
+  }
+  
+  #categorySelect {
+    width: 20%;
+    margin-left: 600px;
+    
+  }
+  
+  #product_typeSelect {
+    width: 20%;
+    margin-left: 600px;
+  }
+  
+  #laith {
+    margin-top: -40px;
+    margin-left: 240px;
+  }
+  
+  
+  
+
+  #kj { 
+    margin-top: 20px;
+    margin-left: -420px;
+  
+  }
+  
+  
+  
+  
+  #but {
+    background-color: rgb(249 115 22);
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  #comment {
+    width: 615px;
+  }
+  
