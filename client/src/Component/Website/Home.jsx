@@ -1,42 +1,40 @@
-import React from 'react'
-import { useState } from 'react';
-import Hero from '../Home/Hero'
-import CircleSection from '../Home/CircleSection'
-import BestSaler from '../Home/BestSaler'
-import Ofu from '../Home/Ofu'
-import Sale from '../Home/Sale'
-import SaleCa from '../Home/SaleCa'
-import BarAds from '../Home/BarAds'
-import MenCa from '../Home/MenCa'
-import Men from '../Home/Men'
-import Opcastm from '../Home/opcastm'
+import React, { useState, useEffect } from 'react';
+import Hero from '../Home/Hero';
+import CircleSection from '../Home/CircleSection';
+import BestSaler from '../Home/BestSaler';
+import Ofu from '../Home/Ofu';
+import Sale from '../Home/Sale';
+import SaleCa from '../Home/SaleCa';
+import BarAds from '../Home/BarAds';
+import MenCa from '../Home/MenCa';
+import Men from '../Home/Men';
+import Opcastm from '../Home/opcastm';
 import Navbar from './Navbar';
 import BestCa from '../Home/BestCa';
 
-
-
-
 function Home() {
-    const [cartItems, setCartItems] = useState([]);
-    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-    const [totalAmount, setTotalAmount] = useState(0);
-  
-    const toggleMobileNav = () => {
-      setIsMobileNavOpen(!isMobileNavOpen);
-    };
-  
-    const addToCart = (product) => {
-      setCartItems([...cartItems, product]);
-      const price = parseFloat(product.price.replace('$', ''));
-      setTotalAmount(totalAmount + price);
-    };
-    
-    const removeFromCart = (product) => {
-      const updatedCart = cartItems.filter((item) => item !== product);
-      setCartItems(updatedCart);
-      const price = parseFloat(product.price.replace('$', ''));
-      setTotalAmount(totalAmount - price);
-    };
+  const [cartItems, setCartItems] = useState([]);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+    const price = parseFloat(product.price.replace('$', ''));
+    setTotalAmount(totalAmount + price);
+  };
+
+  const removeFromCart = (product) => {
+    const updatedCart = cartItems.filter((item) => item !== product);
+    setCartItems(updatedCart);
+    const price = parseFloat(product.price.replace('$', ''));
+    setTotalAmount(totalAmount - price);
+  };
+
   const productData = [
     {
       name: 'Adobe Photoshop CC 2022',
@@ -68,25 +66,54 @@ function Home() {
     },
   ];
 
+  const handleTokenCheck = () => {
+    const cookies = document.cookie.split(';').map((cookie) => cookie.trim());
+    const tokenCookie = cookies.find((cookie) => cookie.startsWith('token'));
+
+    if (tokenCookie) {
+      setIsUserLoggedIn(true);
+    } else {
+      setIsUserLoggedIn(false);
+    }
+  };
+
+  console.log("message: ",{isUserLoggedIn});
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, []);
+
   return (
     <div>
-    <Navbar cartItems={cartItems} onToggleMobileNav={toggleMobileNav} totalAmount={totalAmount} />
+      <Navbar
+        cartItems={cartItems}
+        onToggleMobileNav={toggleMobileNav}
+        totalAmount={totalAmount}
+        isUserLoggedIn={isUserLoggedIn}
+      />
       {isMobileNavOpen && <div className="overlay" onClick={toggleMobileNav} />}
-      <Hero/>
-      <CircleSection/>
+      <Hero />
+      <CircleSection />
+      <BestSaler />
+      <BestCa
+        productData={productData}
+        onAddToCart={addToCart}
+        onRemoveFromCart={removeFromCart}
+      />
       <br></br>
-      <BestSaler/>
-      <BestCa productData={productData} onAddToCart={addToCart} onRemoveFromCart={removeFromCart} />
-      <br></br>
-      <Ofu/>
-      <Sale/>
-      <SaleCa/>
-      <BarAds/>
-      <Men/>
-      <MenCa productData={productData} onAddToCart={addToCart} onRemoveFromCart={removeFromCart}/>
-      <Opcastm/>
+      <Ofu />
+      <Sale />
+      <SaleCa />
+      <BarAds />
+      <Men />
+      <MenCa
+        productData={productData}
+        onAddToCart={addToCart}
+        onRemoveFromCart={removeFromCart}
+      />
+      <Opcastm />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
