@@ -91,3 +91,50 @@
   height: 80px; 
   overflow-y:hidden;
 }
+
+
+
+/* Mohammad style  */
+.mt-4 {
+    margin-top: 0rem;
+    margin-left: 38px;
+  }
+  
+  #categorySelect {
+    width: 20%;
+    margin-left: 600px;
+    
+  }
+  
+  #product_typeSelect {
+    width: 20%;
+    margin-left: 600px;
+  }
+  
+  #laith {
+    margin-top: -40px;
+    margin-left: 240px;
+  }
+  
+  
+  
+
+  #kj { 
+    margin-top: 20px;
+    margin-left: -420px;
+  
+  }
+  
+  
+  
+  
+  #but {
+    background-color: rgb(249 115 22);
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  #comment {
+    width: 615px;
+  }
+  

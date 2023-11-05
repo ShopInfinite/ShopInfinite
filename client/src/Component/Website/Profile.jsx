@@ -12,7 +12,6 @@ function Profile() {
   const [isEditFormVisible, setEditFormVisibility] = useState(false);
   const [newImage, setNewImage] = useState(null);
 
-
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem('profile'));
     if (savedProfile) {
@@ -24,8 +23,6 @@ function Profile() {
       setWishlist(savedWishlist);
     }
   }, []);
-
-
 
   useEffect(() => {
     localStorage.setItem('profile', JSON.stringify(profile));
@@ -67,9 +64,8 @@ function Profile() {
       });
   };
 
-
   useEffect(() => {
-    axios.get('http://localhost:3001/favorite')
+    axios.get('http://localhost:3001/cart')
       .then((response) => {
         setWishlist(response.data);
       })
@@ -78,12 +74,15 @@ function Profile() {
       });
   }, []);
 
+  // Slice the wishlist to display only the first 3 items
+  const firstThreeItems = wishlist.slice(0, 3);
+
   const handleRemoveFromWishlist = (itemId) => {
     const updatedWishlist = wishlist.filter(item => item.id !== itemId);
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
 
-    axios.delete(`http://localhost:3001/favorite/${itemId}`)
+    axios.delete(`http://localhost:3001/cart/${itemId}`)
       .then(() => {
         alert('Item removed successfully');
       })
@@ -140,6 +139,13 @@ function Profile() {
                           <img src={item.image} alt="Product Photo" />
                           <div style={{ position: 'absolute', top: '2px', right: '2px' }}>
                             <div className="flex items-center space-x-1.8 rounded-lg bg-orange-500 px-2 py-1 text-white">
+
+                            <svg 
+                            onClick={() => handleRemoveFromWishlist(item.id)}
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+</svg>
+
                               <svg
                                 className="w-4 h-4 text-yellow-300 mr-1"
                                 aria-hidden="true"
@@ -163,6 +169,7 @@ function Profile() {
                               className="flex items-center space-x-1.5 rounded-lg bg-orange-500 px-4 py-1.5 text-white duration-100 hover-bg-orange-600"
                             >
                               <svg
+
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"

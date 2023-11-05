@@ -3,7 +3,7 @@ import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import './App.css';
 import Cart from './Component/Website/Cart';
 import Home from './Component/Website/Home';
-import ProductDetail from './Component/Website/ProductDetail';
+
 import Checkout from './Component/Website/Checkout';
 
 import Registration from './Component/Website/Registration';
@@ -19,6 +19,8 @@ import { useState } from 'react';
 import Footer from './Component/Website/Footer';
 import Navbar2 from './Component/Website/Navbar2';
 import Profile from './Component/Website/Profile';
+import Product from './Component/Website/ProductPages';
+import Details from './Component/Website/Details';
 
 
 
@@ -58,7 +60,9 @@ function App() {
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<AboutUs/>}/>
           <Route path='/faq' element={<FAQ/>}/>
-          <Route path='/ProductDetail/:id' element={  <ProductDetail/>}/>
+          <Route path='/productDetails' element={<Product/>}/>
+          <Route path="/Details/:Params" element={<Details />} />
+       
           
            
         </Routes> <Footer/>
