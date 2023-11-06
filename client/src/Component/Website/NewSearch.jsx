@@ -1,10 +1,12 @@
 
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Buttonup from './Buttonup';
 
-const Product = () => {
+const Productt = () => {
+     const [isHovered, setIsHovered] = useState(false);
   const [product_target, setproduct_target] = useState('');
   const [product_type, setproduct_type] = useState('');
   const [products, setProducts] = useState([]);
@@ -24,6 +26,23 @@ const Product = () => {
 
 
 
+
+//SEARCH
+const [input, setInput] = useState('');
+const [filteredData, setFilteredData] = useState(products);
+const handleInputChange = (e) => {
+  const inputValue = e.target.value;
+  setInput(inputValue);
+
+  const filtered = products.filter((search) => search.product_name.includes(inputValue));
+  setFilteredData(filtered);
+};
+
+
+
+
+
+//Filter the data 
   const filteredProducts = products.filter((product) => {
     if (product_target === 'Men' || product_target === 'Women' || product_target === 'Children') {
       return (
@@ -104,6 +123,18 @@ const Product = () => {
  
         ) : null}
       </div>
+
+
+    <input
+     type="search"
+     name="search"
+     placeholder="Search"
+     className="bg-white h-10 px-8 pr-10 rounded-full text-sm focus:outline-none w-full lg:w-64"
+     value={input}
+     onChange={handleInputChange}
+/>
+
+
       <section
         id="Projects"
         className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
@@ -195,6 +226,25 @@ const Product = () => {
           </div>
           
         ))}
+{filteredData.map((filteredSearch, index) => (
+                <>
+                  <div className='flex flex-row justify-center'>
+                  <div class="mb-4 max-w-[16rem] rounded-[3rem] dark:bg-gray-800 dark:border-gray-700">
+                      <Link to={`/product/${filteredSearch.product_id}`}>
+                          <img key={index} className="rounded-[2rem] object-cover max-w-[16rem] h-[25rem] hover:opacity-75" src='https://cdn-images.farfetch-contents.com/21/24/30/36/21243036_51249594_600.jpg' alt="product-image" />
+                      </Link>
+                      <div class="p-5">
+                          <Link to={`/product/${filteredSearch.product_id}`} > 
+                              <p key={index} class={`${isHovered ? '' : 'truncate'} text-center hover:text-gray-900 text-[#5C5C42] mb-2 text-sm font-medium tracking-tight dark:text-white`}>{filteredSearch.product_name}</p>
+                          </Link>
+                              <p key={index} class="text-center hover:text-gray-900 text-[#5C5C42] dark:text-gray-400">{filteredSearch.product_id}</p>
+                          </div> 
+                      </div>  
+                  </div>
+                  </>
+              
+                ))}
+        
       </section>
            {/* Pagination controls */}
            <div className="text-center">
@@ -222,7 +272,31 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Productt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

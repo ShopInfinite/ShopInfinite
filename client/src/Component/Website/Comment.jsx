@@ -9,7 +9,7 @@ const Comment = () => {
 
   useEffect(() => {
     // استرجاع البيانات عند تحميل المكون
-    axios.get('http://localhost:3001/comments')
+    axios.get('http://localhost:3001/massge')
       .then((response) => {
         setComments(response.data);
       })
@@ -27,7 +27,7 @@ const Comment = () => {
       };
 
       // إضافة التعليق إلى الخادم
-      axios.post('http://localhost:4000/massge', newCommentObj)
+      axios.post('http://localhost:3001/massge', newCommentObj)
         .then((response) => {
           setComments([...comments, response.data]);
           setNewComment('');
@@ -46,7 +46,7 @@ const Comment = () => {
       };
 
       // تحديث التعليق في الخادم
-      axios.put(`http://localhost:4000/massge/${selectedComment.id}`, updatedComment)
+      axios.put(`http://localhost:3001/massge/${selectedComment.id}`, updatedComment)
         .then(() => {
           const updatedComments = comments.map((comment) =>
             comment.id === selectedComment.id ? updatedComment : comment
@@ -63,7 +63,7 @@ const Comment = () => {
 
   const handleDeleteComment = (comment) => {
     // حذف التعليق من الخادم
-    axios.delete(`http://localhost:4000/massge/${comment.id}`)
+    axios.delete(`http://localhost:3001/massge/${comment.id}`)
       .then(() => {
         const updatedComments = comments.filter((c) => c.id !== comment.id);
         setComments(updatedComments);

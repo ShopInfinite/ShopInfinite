@@ -167,10 +167,10 @@ console.log(product.imageUrl)
                 </button>
                 
               </div>
-              <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
+              {/* <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
               {product.product_origin}</h3>
               <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
-              {product.product_fabricType}</h3>
+              {product.product_fabricType}</h3> */}
             </div>
             <Comment/>
           </div>

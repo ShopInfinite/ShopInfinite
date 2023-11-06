@@ -2,52 +2,45 @@
   "product": [
     {
       "id": 1,
-      "title": "product comment",
-      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "title": "Jackets",
+      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "size": "xl",
+      "price": 20,
+      "quantity": 6
     },
     {
-      "title": "product 222 comment",
+      "title": "Jackets",
       "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "size": "xl",
+      "price": 20,
+      "quantity": 6,
       "id": 2
     },
     {
-      "title": "product 3333 comment ",
+      "title": "Jackets ",
       "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "size": "xl",
+      "price": 20,
+      "quantity": 6,
       "id": 3
     }
   ],
   "cart": [
     {
-      "title": "product222 comment ",
+      "title": "Jackets ",
       "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
       "size": "xl",
       "price": 20,
-      "quantity": 6,
-      "id": 5
+      "quantity": 8,
+      "id": 3
     },
     {
-      "title": "product222 comment ",
+      "title": "Jackets ",
       "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
       "size": "xl",
       "price": 20,
       "quantity": 6,
-      "id": 5
-    },
-    {
-      "title": "product222 comment ",
-      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "size": "xl",
-      "price": 20,
-      "quantity": 6,
-      "id": 5
-    },
-    {
-      "title": "product222 comment ",
-      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "size": "xl",
-      "price": 20,
-      "quantity": 6,
-      "id": 5
+      "id": 1
     }
   ],
   "users": [
@@ -282,6 +275,25 @@
     },
     {
       "product_id": 2,
+      "product_target": "Women",
+      "product_type": "Jackets",
+      "product_name": "Women's Dress 1",
+      "product_price": 50,
+      "product_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae?",
+      "product_subDescription": "A stylish men's shirt for any occasion.",
+      "product_rate": "4 Reviews",
+      "product_origin": " Product type Paris",
+      "product_fabricType": "Fabric Type Cotton ",
+      "imageUrl": [
+        "https://contents.mediadecathlon.com/p1714339/9f0d732eb526691c09ccc867443226e6/p1714339.jpg?format=auto&quality=70&f=650x0",
+        "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
+      ],
+      "discountedPrice": 45
+    },
+    {
+      "product_id": 7,
       "product_target": "Men",
       "product_type": "Shirts",
       "product_name": "Men's Shirt",
@@ -293,6 +305,44 @@
       "product_fabricType": "Fabric Type Cotton ",
       "imageUrl": [
         "https://w7.pngwing.com/pngs/972/557/png-transparent-blue-dress-shirt-t-shirt-dress-shirt-dress-shirt-tshirt-blue-image-file-formats-thumbnail.png",
+        "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
+      ],
+      "discountedPrice": 25
+    },
+    {
+      "product_id": 16,
+      "product_target": "Men",
+      "product_type": "Pants",
+      "product_name": "Pants",
+      "product_subDescription": "A stylish men's shirt for any occasion.",
+      "product_rate": "4 Reviews",
+      "product_origin": " Product type Paris",
+      "product_fabricType": "Fabric Type Cotton ",
+      "imageUrl": [
+        "https://cottonworld.net/cdn/shop/products/cottonworld-men-s-pants-men-s-cotton-lycra-brown-slim-fit-pants-15659377492021.jpg?v=1597075880",
+        "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
+      ],
+      "product_price": 30,
+      "product_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae?",
+      "discountedPrice": 25
+    },
+    {
+      "product_id": 14,
+      "product_target": "Men",
+      "product_type": "Jackets",
+      "product_name": "Jackets",
+      "product_price": 30,
+      "product_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae?",
+      "product_subDescription": "A stylish men's shirt for any occasion.",
+      "product_rate": "4 Reviews",
+      "product_origin": " Product type Paris",
+      "product_fabricType": "Fabric Type Cotton ",
+      "imageUrl": [
+        "https://icon2.cleanpng.com/20171221/qxe/jacket-png-image-5a3b68acf0bfb9.8294178115138428609861.jpg",
         "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
         "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
@@ -376,7 +426,7 @@
       "discountedPrice": 30
     },
     {
-      "product_id": 7,
+      "product_id": 2,
       "product_target": "Women",
       "product_type": "Jackets",
       "product_name": "Women's Dress 1",
@@ -509,25 +559,6 @@
       "discountedPrice": 25
     },
     {
-      "product_id": 14,
-      "product_target": "Men",
-      "product_type": "Jackets",
-      "product_name": "Jackets",
-      "product_price": 30,
-      "product_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae?",
-      "product_subDescription": "A stylish men's shirt for any occasion.",
-      "product_rate": "4 Reviews",
-      "product_origin": " Product type Paris",
-      "product_fabricType": "Fabric Type Cotton ",
-      "imageUrl": [
-        "https://icon2.cleanpng.com/20171221/qxe/jacket-png-image-5a3b68acf0bfb9.8294178115138428609861.jpg",
-        "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
-        "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
-      ],
-      "discountedPrice": 25
-    },
-    {
       "product_id": 15,
       "product_target": "Men",
       "product_type": "Pants",
@@ -544,25 +575,6 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
       ],
       "product_price": 30,
-      "discountedPrice": 25
-    },
-    {
-      "product_id": 16,
-      "product_target": "Men",
-      "product_type": "Pants",
-      "product_name": "Pants",
-      "product_subDescription": "A stylish men's shirt for any occasion.",
-      "product_rate": "4 Reviews",
-      "product_origin": " Product type Paris",
-      "product_fabricType": "Fabric Type Cotton ",
-      "imageUrl": [
-        "https://cottonworld.net/cdn/shop/products/cottonworld-men-s-pants-men-s-cotton-lycra-brown-slim-fit-pants-15659377492021.jpg?v=1597075880",
-        "https://t3.ftcdn.net/jpg/02/10/85/26/360_F_210852662_KWN4O1tjxIQt8axc2r82afdSwRSLVy7g.jpg",
-        "https://hips.hearstapps.com/hmg-prod/images/index-online-64da7782717b2.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65IeKM8fDUzg5XWlTkjG_dZyMcBa0VDJ-mb2TUwZF2cKsKgUYTrotOfCCLx-2yoazSQM&usqp=CAU"
-      ],
-      "product_price": 30,
-      "product_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis debitis architecto consectetur sequi aperiam sunt eveniet cum quibusdam qui impedit ea officiis doloremque quam, reiciendis, ut quae accusamus veritatis vitae?",
       "discountedPrice": 25
     },
     {
@@ -1342,6 +1354,28 @@
       ],
       "product_price": 22,
       "discountedPrice": 20
+    }
+  ],
+  "massge": [
+    {
+      "name": "Laith",
+      "email": "laithalmajaly007@gmail.com",
+      "message": "Hello",
+      "id": 2
+    },
+    {
+      "author": "Your Name",
+      "date": "11/6/2023",
+      "content": "nrgrege",
+      "id": 3
+    }
+  ],
+  "contact": [
+    {
+      "name": "Your Name",
+      "email": "11/6/2023",
+      "massage": "This is a good product",
+      "id": 1
     }
   ]
 }

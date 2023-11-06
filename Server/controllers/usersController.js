@@ -17,72 +17,71 @@ async function signup(req, res) {
   } = req.body;
 
   try {
-    // const schema = joi.object({
-    //   fistname: joi.string().alphanum().min(3).max(20).required(),
-    //   lastname: joi.string().alphanum().min(3).max(20).required(),
-    //   email: joi
-    //     .string()
-    //     .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
-    //     .required(),
-    //   password: joi
-    //     .string()
-    //     .pattern(
-    //       new RegExp(
-    //         "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&!])[A-Za-z\\d@#$%^&!]{6,30}$"
-    //       )
-    //     )
-    //     .required(),
-    //   phonenumber: joi
-    //     .string()
-    //     .pattern(/^[0-9]{7,12}$/)
-    //     .required(),
-    // });
-    // const validate = schema.validate({
-    //   fistname,
-    //   lastname,
-    //   email,
-    //   password,
-    //   phonenumber,
-    // });
-    // if (validate.error) {
-    //   res.status(405).json({ error: validate.error.details });
-    // } else {
-    const hashedPassword = await bcrypt.hash(password, 10); //10 is salt
-
-    const checkQuery = "SELECT user_id FROM users WHERE email = $1";
-    const checkResult = await db.query(checkQuery, [email]);
-
-    if (checkResult.rows.length > 0) {
-      return res.status(409).json({ error: "User already exists" });
-    }
-
-    const insertQuery = `INSERT INTO users (fistname,lastname, email, Password,city,address,phonenumber,role_id )
-                              VALUES ($1, $2, $3,$4,$5,$6,$7,$8)
-                              RETURNING user_id`;
-
-    const insertValues = [
+    const schema = joi.object({
+      fistname: joi.string().alphanum().min(3).max(20).required(),
+      lastname: joi.string().alphanum().min(3).max(20).required(),
+      email: joi
+        .string()
+        .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+        .required(),
+      password: joi
+        .string()
+        .pattern(
+          new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&!])[A-Za-z\\d@#$%^&!]{6,30}$"
+          )
+        )
+        .required(),
+      phonenumber: joi
+        .string()
+        .pattern(/^[0-9]{7,12}$/)
+        .required(),
+    });
+    const validate = schema.validate({
       fistname,
       lastname,
       email,
-      hashedPassword,
-      city,
-      address,
+      password,
       phonenumber,
-      role_id,
-    ];
-    const result = await db.query(insertQuery, insertValues);
-    const newUserId = result.rows[0].user_id;
+    });
+    if (validate.error) {
+      res.status(405).json({ error: validate.error.details });
+    } else {
+      const hashedPassword = await bcrypt.hash(password, 10); //10 is salt
 
-    res
-      .status(201)
-      .json({ message: "User added successfully", user_id: newUserId });
+      const checkQuery = "SELECT user_id FROM users WHERE email = $1";
+      const checkResult = await db.query(checkQuery, [email]);
+
+      if (checkResult.rows.length > 0) {
+        return res.status(409).json({ error: "User already exists" });
+      }
+
+      const insertQuery = `INSERT INTO users (fistname,lastname, email, Password,city,address,phonenumber,role_id )
+                              VALUES ($1, $2, $3,$4,$5,$6,$7,$8)
+                              RETURNING user_id`;
+
+      const insertValues = [
+        fistname,
+        lastname,
+        email,
+        hashedPassword,
+        city,
+        address,
+        phonenumber,
+        role_id,
+      ];
+      const result = await db.query(insertQuery, insertValues);
+      const newUserId = result.rows[0].user_id;
+
+      res
+        .status(201)
+        .json({ message: "User added successfully", user_id: newUserId });
+    }
   } catch (error) {
     console.error("Failed to register : ", error);
     res.status(500).json({ error: "Failed to register" });
   }
 }
-
-const secret_key = process.env.SECRET_KEY;
 
 async function login(req, res) {
   const { email, password } = req.body;
@@ -105,7 +104,7 @@ async function login(req, res) {
             fistname: checkResult.rows[0].fistname,
             lastname: checkResult.rows[0].lastname,
           },
-          secret_key,
+          process.env.SECRET_KEY,
           {
             expiresIn: "1d",
           }

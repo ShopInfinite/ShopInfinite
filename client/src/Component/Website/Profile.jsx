@@ -92,7 +92,7 @@ function Profile() {
   };
 
   return (
-    <div className="bg-white p-6 md:p-12">
+    <div className="bg-white p-6 md:p-12 mt-20">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-1">
           <div className="bg-white p-4 rounded-lg shadow-md">
