@@ -270,10 +270,10 @@ const Cart = ({ data }) => {
          
         </div>
       ))}
-      <div className='flex'>
+      {/* <div className='flex'>
         <input type="text" className=' mt-6  p-2 rounded-lg border bg-white shadow-md  md:w-1/3  mx-10' placeholder='Coupon code'/>
         <button className='mt-6  p-2 px-4 rounded-md bg-[#F5A124] py-1.5 font-medium text-blue-50 hover:bg--[#F5A124]'>Use the Coupon</button>
-      </div>
+      </div> */}
     </div>
 
       {/* Sub total */}

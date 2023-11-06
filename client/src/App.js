@@ -21,6 +21,8 @@ import Navbar2 from './Component/Website/Navbar2';
 import Profile from './Component/Website/Profile';
 import Product from './Component/Website/ProductPages';
 import Details from './Component/Website/Details';
+import Productt from './Component/Website/NewSearch';
+
 
 
 
@@ -60,7 +62,8 @@ function App() {
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<AboutUs/>}/>
           <Route path='/faq' element={<FAQ/>}/>
-          <Route path='/productDetails' element={<Product/>}/>
+          <Route path='/categories' element={<Product/>}/>
+          <Route path='/search' element={<Productt/>}/>
           <Route path="/Details/:Params" element={<Details />} />
        
           

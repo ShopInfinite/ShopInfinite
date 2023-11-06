@@ -35,7 +35,7 @@ const Wishlist = () => {
 
    <>
   {/* component */}
-  <div className="mx-auto container px-4 md:px-6 2xl:px-0 py-12 flex justify-center items-center">
+  <div className="mx-auto container px-4 md:px-6 2xl:px-0 py-12 flex justify-center items-center mt-20">
     <div className="flex flex-col jusitfy-start items-start">
       <div className="mt-3">
         <h1 className="text-3xl lg:text-4xl tracking-tight font-semibold leading-8 lg:leading-9 text-gray-800  dark:text-white">

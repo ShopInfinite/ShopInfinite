@@ -75,8 +75,8 @@ function Home() {
       <Hero/>
       <CircleSection/>
       <br></br>
-      <BestSaler/>
-      <BestCa productData={productData} onAddToCart={addToCart} onRemoveFromCart={removeFromCart} />
+      {/* <BestSaler/> */}
+      {/* <BestCa productData={productData} onAddToCart={addToCart} onRemoveFromCart={removeFromCart} /> */}
       <br></br>
       <Ofu/>
       <Sale/>
