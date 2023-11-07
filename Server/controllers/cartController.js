@@ -8,10 +8,9 @@ async function addToCart(req, res) {
   try {
     const productNameResult = await db.query(
       `
-      SELECT product_name, product_description, image1
+      SELECT product_name, product_description, product_image
       FROM products 
-      INNER JOIN product_images ON products.product_id = product_images.product_id
-      WHERE products.product_id = $1
+      WHERE product_id = $1
       `,
       [product_id]
     );
@@ -110,8 +109,36 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const getProductsFromCart = async (req, res) => {
+  try {
+    const result = await getAllProductFromDatabase();
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error(error); // Log the error
+    res.status(500).json({ error: "Get Product failed" });
+  }
+};
+
+async function getAllProductFromDatabase() {
+  const queryText = `
+      SELECT product_image, product_name, product_size, product_price, quantity 
+      FROM products
+      INNER JOIN cart ON prducts.product_id = cart.product_id;
+    `;
+  console.log(queryText);
+
+  try {
+    const result = await db.query(queryText); // Assuming you have a database connection named 'db'
+    console.log(result);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   addToCart,
   updateCart,
   deleteProduct,
+  getProductsFromCart,
 };

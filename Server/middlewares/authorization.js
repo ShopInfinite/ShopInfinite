@@ -3,21 +3,21 @@ require("dotenv").config();
 
 async function authorize(req, res, next) {
   try {
-    const token = res.cookies.token;
-    if ("token" == null) {
+    const token = req.cookies.token; // Corrected from res.cookies.token to req.cookies.token
+    if (token == null) {
       res.clearCookie("token");
-      res.status(401).json("you need to login first");
+      return res.status(401).json("You need to login first");
     } else {
       const user = jwt.verify(token, process.env.SECRET_KEY);
       if (!user.id) {
-        res.status(401).json("unauthorized");
+        return res.status(401).json("Unauthorized");
       }
       req.user = user;
-      //   next();
+      next();
     }
   } catch (error) {
     console.log(error);
-    res.status(400).json(error);
+    return res.status(400).json(error);
   }
 }
 

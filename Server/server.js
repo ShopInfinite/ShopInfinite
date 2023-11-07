@@ -17,7 +17,7 @@ const deleteProduct = require("./routers/productsRouter");
 const payment = require("./routers/paymentRouter");
 
 //* Product images Router
-const multer = require("./routers/multerRouter");
+// const multer = require("./routers/multerRouter");
 
 //* Cart Router
 const cart = require("./routers/cartRouter");
@@ -36,9 +36,10 @@ app.use(addProduct);
 app.use(updateProduct);
 app.use(deleteProduct);
 app.use(payment);
-app.use(multer);
+// app.use(multer);
 app.use(cart);
 app.use(comments);
+app.use("/images", express.static("images"));
 
 app.listen(5000, () => {
   console.log("Server is running on port 5000");

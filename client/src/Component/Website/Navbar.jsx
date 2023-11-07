@@ -13,10 +13,10 @@ function Navbar({ cartItems ,isUserLoggedIn }) {
 
   const cartItemCount = cartItems ? cartItems.length : 0;
 
-  const cartTotal = cartItems.reduce((total, item) => {
-    const price = parseFloat(item.price.replace('$', ''));
-    return total + price;
-  }, 0);
+  // const cartTotal = cartItems.reduce((total, item) => {
+  //   const price = parseFloat(item.price.replace('$', ''));
+  //   return total + price;
+  // }, 0);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);

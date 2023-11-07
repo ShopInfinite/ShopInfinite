@@ -96,7 +96,7 @@ function Home() {
       <CircleSection />
       <BestSaler />
       <BestCa
-        productData={productData}
+        products={productData}
         onAddToCart={addToCart}
         onRemoveFromCart={removeFromCart}
       />
@@ -107,7 +107,7 @@ function Home() {
       <BarAds />
       <Men />
       <MenCa
-        productData={productData}
+        products={productData}
         onAddToCart={addToCart}
         onRemoveFromCart={removeFromCart}
       />

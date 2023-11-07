@@ -123,7 +123,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import basket from '../../Images/basket.png';
+import basket from '../../images/basket.png';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
