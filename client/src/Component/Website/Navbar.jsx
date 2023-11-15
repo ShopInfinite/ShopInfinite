@@ -3,7 +3,7 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 
 
-function Navbar({ cartItems }) {
+function Navbar({ cartItems ,isUserLoggedIn }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -129,12 +129,30 @@ function Navbar({ cartItems }) {
               </div>
             </span> */}
           </div>
-          <Link to='/login'>
-          <span className="group">
-            <button className="text-white bg-orange-700 px-4 py-2 rounded-md hover:bg-orange-400">
-              Login / Sign up
-            </button>
-          </span></Link>
+          {isUserLoggedIn ? (
+            <Link to="/profile">
+              <span className="group">
+                {/* Replace the Login button with a profile icon */}
+                <svg
+                  className="w-6 h-6 fill-current text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  {/* Insert your profile icon SVG or icon library component here */}
+                  {/* Example: */}
+                  <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zM12 14c-2.206 0-4-1.794-4-4s1.794-4 4-4s4 1.794 4 4S14.206 14 12 14zM12 16c3.309 0 6 1.791 6 4h-12C6 17.791 8.691 16 12 16z" />
+                </svg>
+              </span>
+            </Link>
+          ) : (
+            <Link to='/login'>
+              <span className="group">
+                <button className="text-white bg-orange-700 px-4 py-2 rounded-md hover:bg-orange-400">
+                  Login / Sign up
+                </button>
+              </span>
+            </Link>
+          )}
         </div>
       </nav>
 

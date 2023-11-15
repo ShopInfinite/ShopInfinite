@@ -131,9 +131,10 @@ const Cart = ({ data }) => {
   const [cartProduct, setCartProduct] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/cart')
+    axios.get('http://localhost:5000/getCarts/3')
       .then((response) => {
         setCartProduct(response.data);
+        
       })
       .catch((error) => {
         console.error('An error occurred:', error);
@@ -143,17 +144,18 @@ const Cart = ({ data }) => {
   const handleQuantityChange = (productId, quantityChange) => {
     setCartProduct((prevCart) => {
       const updatedCart = prevCart.map((item) => {
-        if (item.id === productId) {
+        if (item.product_id === productId) {
           // Create a new object with the updated quantity
           return { ...item, quantity: item.quantity + quantityChange };
         }
+
         return item;
       });
   
       // If you need to update the server as well, you can make an Axios request here.
       axios
-        .patch(`http://localhost:3001/cart/${productId}`, {
-          quantity: updatedCart.find((item) => item.id === productId).quantity,
+        .put(`http://localhost:5000/updateCart/3`, {
+          quantity: updatedCart.find((item) => item.product_id === productId).quantity,
         })
         .then((response) => {
           // Handle the successful update on the server if needed.
@@ -173,7 +175,7 @@ const Cart = ({ data }) => {
       .then((response) => {
         // Handle the successful removal on the server if needed.
         // You can also remove the item locally from the cartProduct state.
-        const updatedCart = cartProduct.filter((item) => item.id !== productId);
+        const updatedCart = cartProduct.filter((item) => item.product_id !== productId);
         setCartProduct(updatedCart);
       })
       .catch((error) => {
@@ -185,7 +187,7 @@ const Cart = ({ data }) => {
     let total = 0;
   
     cartProduct.forEach((product) => {
-      total += product.price * product.quantity;
+      total += product.product_price * product.quantity;
     });
   
    
@@ -202,13 +204,13 @@ const Cart = ({ data }) => {
     <div className="rounded-lg md:w-2/3">
     
       {cartProduct && cartProduct.map((product) => (
-        <div key={product.id}>
+        <div key={product.product_id}>
         
         <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-        <Link to={`/ProductDetail/${product.id}`} > 
+        <Link to={`/ProductDetail/${product.product_id}`} > 
        
           <img
-            src={product.image}
+            src={product.product_image}
             alt="product-image"
             className="w-full rounded-lg sm:w-40"
           /> 
@@ -223,7 +225,7 @@ const Cart = ({ data }) => {
             <div className="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
               <div className="flex items-center border-gray-100">
               <span
-                onClick={() => handleQuantityChange(product.id, -1)}
+                onClick={() => handleQuantityChange(product.product_id, -1)}
            className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-[#F5A124] hover:text-white"
                    >
                  {" "}
@@ -236,7 +238,7 @@ const Cart = ({ data }) => {
                   min={1}
                 />
                 <span
-                onClick={() => handleQuantityChange(product.id, 1)}
+                onClick={() => handleQuantityChange(product.product_id, 1)}
                 className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-[#F5A124] hover:text-white"
                   >
                {" "}
@@ -245,9 +247,9 @@ const Cart = ({ data }) => {
               </div>
               <div className="flex items-center space-x-4">
                 <p className='text-gray-500'>Price</p>
-              <p className="text-sm"> {product.price * product.quantity} JD</p>
+              <p className="text-sm"> {product.product_price * product.quantity} JD</p>
               <svg
-              onClick={() => handleRemoveItem(product.id)}
+              onClick={() => handleRemoveItem(product.product_id)}
               // Add a click event handler to call handleRemoveItem
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

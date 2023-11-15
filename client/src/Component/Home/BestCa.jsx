@@ -173,7 +173,7 @@ function BestCa({ onAddToCart ,productData}) {
       const response = await axios.post(' http://localhost:3001/favorite', productData);
       return response.data;
     } catch (error) {
-      alert('Failed to save data to the server:', error);
+      console.log('Failed to save data to the server:', error);
     }
   }
 
@@ -195,7 +195,7 @@ function BestCa({ onAddToCart ,productData}) {
   return (
     <div>
       <section className="py-10 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 p-9 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 p-9 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product, index) => (
             <article
               key={index}
@@ -249,7 +249,7 @@ function BestCa({ onAddToCart ,productData}) {
               </a>
             </article>
           ))}
-        </div>
+        </div> */}
       </section>
     </div>
   );

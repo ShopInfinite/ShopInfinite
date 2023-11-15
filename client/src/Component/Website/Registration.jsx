@@ -292,7 +292,7 @@ const Registration = ( ) => {
               placeholder="Enter your first name"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
+            required/>
           </div>
 
           <div className="mb-4">
@@ -303,7 +303,7 @@ const Registration = ( ) => {
               placeholder="Enter your last name"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
+              required/>
           </div>
 
           <div className="mb-4">
@@ -314,7 +314,7 @@ const Registration = ( ) => {
               placeholder="Enter your phone number"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
+              required/>
           </div>
 
           <div className="flex flex-col mt-4">
@@ -363,7 +363,7 @@ const Registration = ( ) => {
               placeholder="Enter your Address"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
+              required />
           </div>
 
           <div className="mb-4">
@@ -374,7 +374,7 @@ const Registration = ( ) => {
               placeholder="Enter your password"
               onChange={handleInputs}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-            />
+              required/>
             {error.password && <p className="text-red-500">{error.password}</p>}
           </div>
 

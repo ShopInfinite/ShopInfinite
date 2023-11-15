@@ -15,7 +15,7 @@ const Product = () => {
   console.log(products)
   useEffect(() => {
     // استرداد البيانات من API عند تحميل المكون
-    axios.get('http://localhost:3001/Data')
+    axios.get('http://localhost:5000/getAllProduct')
       .then((response) => setProducts(response.data))
       .catch((error) => console.error('حدث خطأ في جلب البيانات: ', error));
       console.log(products)
@@ -223,19 +223,3 @@ const Product = () => {
 };
 
 export default Product;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

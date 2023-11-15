@@ -27,28 +27,20 @@
   ],
   "cart": [
     {
-      "title": "Jackets",
-      "image": "https://ae01.alicdn.com/kf/H7178bb916fff4f119852b9ea50dde499o/WOMEN-s-lightweight-PADDED-jacet-wilson-PADDED.jpg",
-      "size": "xl",
-      "price": 20,
-      "quantity": 8,
-      "id": 5
-    },
-    {
-      "title": "Jackets 22",
-      "image": "https://ae01.alicdn.com/kf/H7178bb916fff4f119852b9ea50dde499o/WOMEN-s-lightweight-PADDED-jacet-wilson-PADDED.jpg ",
-      "size": "xl",
-      "price": 20,
-      "quantity": 4,
-      "id": 6
-    },
-    {
-      "title": "Jackets",
-      "image": "https://ae01.alicdn.com/kf/H7178bb916fff4f119852b9ea50dde499o/WOMEN-s-lightweight-PADDED-jacet-wilson-PADDED.jpg",
+      "title": "Jackets ",
+      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
       "size": "xl",
       "price": 20,
       "quantity": 8,
       "id": 3
+    },
+    {
+      "title": "Jackets ",
+      "image": "https://images.pexels.com/photos/6348092/pexels-photo-6348092.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "size": "xl",
+      "price": 20,
+      "quantity": 6,
+      "id": 1
     }
   ],
   "users": [
@@ -1362,6 +1354,28 @@
       ],
       "product_price": 22,
       "discountedPrice": 20
+    }
+  ],
+  "massge": [
+    {
+      "name": "Laith",
+      "email": "laithalmajaly007@gmail.com",
+      "message": "Hello",
+      "id": 2
+    },
+    {
+      "author": "Your Name",
+      "date": "11/6/2023",
+      "content": "nrgrege",
+      "id": 3
+    }
+  ],
+  "contact": [
+    {
+      "name": "Your Name",
+      "email": "11/6/2023",
+      "massage": "This is a good product",
+      "id": 1
     }
   ]
 }

@@ -1,76 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 
-const Comment = () => {
+const Comment = ({Params}) => {
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
-  const [editComment, setEditComment] = useState('');
+  const [newComment, setNewComment] = useState("");
+  const [editComment, setEditComment] = useState("");
   const [selectedComment, setSelectedComment] = useState(null);
+  const user_id = Cookies.get("user_id");
+  console.log("oidkjdewopslkm",comments)
+  console.log(Cookies)
 
   useEffect(() => {
     // استرجاع البيانات عند تحميل المكون
-    axios.get('http://localhost:3001/comments')
+    axios
+      .get(`http://localhost:5000/getComments/${Params}`)
       .then((response) => {
         setComments(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching comments:', error);
+        console.error("Error fetching comments:", error);
+        
       });
   }, []);
 
   const handleAddComment = () => {
-    if (newComment.trim() !== '') {
+    if (newComment.trim() !== "") {
       const newCommentObj = {
-        author: 'Your Name', // يمكنك تغيير 'Your Name' إلى اسم المستخدم الفعلي
-        date: new Date().toLocaleDateString(),
-        content: newComment,
+        user_id: "2",
+        fistname: " Name", // يمكنك تغيير 'Your Name' إلى اسم المستخدم الفعلي
+        lastname: "lnamre",
+        comment_content: newComment,
+        product_name: "Striped Cotton Pants",
       };
 
       // إضافة التعليق إلى الخادم
-      axios.post('http://localhost:4000/massge', newCommentObj)
+      axios
+        .post(`http://localhost:5000/addComment/${Params}/${user_id}`, newCommentObj)
         .then((response) => {
           setComments([...comments, response.data]);
-          setNewComment('');
+          setNewComment("");
         })
         .catch((error) => {
-          console.error('Error adding comment:', error);
+          console.error("Error adding comment:", error);
         });
     }
   };
 
   const handleEditComment = () => {
-    if (selectedComment && editComment.trim() !== '') {
+    if (selectedComment && editComment.trim() !== "") {
       const updatedComment = {
         ...selectedComment,
         content: editComment,
       };
 
       // تحديث التعليق في الخادم
-      axios.put(`http://localhost:4000/massge/${selectedComment.id}`, updatedComment)
+      axios
+        .put(
+          `http://localhost:3001/massge/${selectedComment.id}`,
+          updatedComment
+        )
         .then(() => {
           const updatedComments = comments.map((comment) =>
             comment.id === selectedComment.id ? updatedComment : comment
           );
           setComments(updatedComments);
           setSelectedComment(null);
-          setEditComment('');
+          setEditComment("");
         })
         .catch((error) => {
-          console.error('Error updating comment:', error);
+          console.error("Error updating comment:", error);
         });
     }
   };
 
   const handleDeleteComment = (comment) => {
     // حذف التعليق من الخادم
-    axios.delete(`http://localhost:4000/massge/${comment.id}`)
+    axios
+      .delete(`http://localhost:5000/deleteComment/${Params}/${comment.comment_id}`)
       .then(() => {
         const updatedComments = comments.filter((c) => c.id !== comment.id);
         setComments(updatedComments);
         setSelectedComment(null);
+        // console.log("spdkjklmldfmekojkmfkmpo",comments)
+    console.log("sdasddddddddddddddddddddddddddddddddddddddddlkfj",comment)
+
+
+        window.location.reload()
       })
       .catch((error) => {
-        console.error('Error deleting comment:', error);
+        console.error("Error deleting comment:", error);
       });
   };
 
@@ -110,7 +130,7 @@ const Comment = () => {
 
           {comments.map((comment) => (
             <article
-              key={comment.id}
+              key={comment.comment_id}
               className="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
             >
               <div className="relative">
@@ -147,9 +167,11 @@ const Comment = () => {
                   </div>
                 ) : (
                   <div>
-                    <div className="text-gray-700 font-bold">Author: {comment.author}</div>
-                    <div className="text-gray-700">Date: {comment.date}</div>
-                    {comment.content}
+                    <div className="text-gray-700 font-bold">
+                      user: {comment.fistname}
+                    </div>
+                    {/* <div className="text-gray-700">Date: {comment.date}</div> */}
+                    {comment.comment_content}
                   </div>
                 )}
               </p>

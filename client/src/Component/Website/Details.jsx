@@ -22,14 +22,17 @@ const Details = () => {
 
   useEffect(() => {
     // Make an Axios GET request to your server's API endpoint for product details
+    console.log("Params")
+    console.log("Params")
     console.log(Params)
-    axios.get(`http://localhost:3001/Data?product_id=${Params}`)
+    console.log("Params")
+    axios.get(`http://localhost:5000/getProductDetails/${Params}`)
 
       .then(response => {
         console.log("Fffff")
         // Assuming the response data has fields like 'name' and 'description'
         setProduct(response.data[0]);
-        setselectImage(response.data[0].imageUrl[0])
+        // setselectImage(response.data[0].imageUrl[0])
       })
       .catch(error => {
         console.error('Error fetching product details:', error);
@@ -40,7 +43,7 @@ const Details = () => {
   }, [Params]);
 
   const totalPrice = (product.product_price * counter).toFixed(2);
-console.log(product.imageUrl)
+// console.log(product.imageUrl)
   return (
     <div>
       {/* Component */}
@@ -167,12 +170,12 @@ console.log(product.imageUrl)
                 </button>
                 
               </div>
-              <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
+              {/* <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
               {product.product_origin}</h3>
               <h3 id='kj' className="text-sm title-font text-gray-500 tracking-widest">
-              {product.product_fabricType}</h3>
+              {product.product_fabricType}</h3> */}
             </div>
-            <Comment/>
+            <Comment Params={Params}/>
           </div>
         </div>
       </section>

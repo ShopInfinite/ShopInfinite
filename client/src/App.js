@@ -37,6 +37,24 @@ function App() {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
+
+  // const addToCart = (product) => {
+  //   // You can directly send the product data to the server without using useEffect here
+  //   async function sendProductToServer() {
+  //     try {
+  //       const response = await axios.post('http://localhost:5000/getAllProduct', product);
+  //       setProducts(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       alert('Failed to save data to the server:', error);
+  //     }
+  //   }
+  //   sendProductToServer();
+  
+  //   // Now, you can call the onAddToCart function to add the product to the cart
+  //   onAddToCart(product);
+  // };
+
  
 
 

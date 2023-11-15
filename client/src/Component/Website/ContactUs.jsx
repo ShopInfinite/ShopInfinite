@@ -12,7 +12,7 @@ function ContactUs() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/favorite', formData, {
+      const response = await axios.post('http://localhost:3001/massge', formData, {
         headers: {
           'Content-Type': 'application/json',
         },

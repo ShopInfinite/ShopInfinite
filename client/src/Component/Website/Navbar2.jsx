@@ -130,12 +130,13 @@ function Navbar2({ cartItems }) {
               </div>
             </span> */}
           </div>
-          <a href='/login'>
-          <span className="group">
-            <button className="text-white bg-orange-700 px-4 py-2 rounded-md hover:bg-orange-400">
+          {/* <a href='/login'> */}
+          <span className="group  px-4">
+            {/* <button className="text-white bg-orange-700 px-4 py-2 rounded-md hover:bg-orange-400">
               Login / Sign up
-            </button>
-          </span></a>
+            </button> */}
+          </span>
+          {/* </a> */}
         </div>
       </nav>
 
